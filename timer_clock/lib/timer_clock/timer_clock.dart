@@ -148,6 +148,13 @@ class _TimerClockState extends State<TimerClock> {
   }
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    _timer!.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return widget.itemBuilder(context,
         (widget.isCountDown) ? widget.duration - _elapsedTime : _elapsedTime);
